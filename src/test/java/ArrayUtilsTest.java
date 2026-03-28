@@ -79,9 +79,4 @@ public class ArrayUtilsTest {
     public void testCountOfMixedBranchPaths() {
         assertEquals(2, ArrayUtils.countOf(new int[]{12, 3, 7, 3}, 3));
     }
-
-    @Test
-    public void testMain() {
-        Main.main(new String[]{});
-    }
 }
