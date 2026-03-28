@@ -1,4 +1,8 @@
+import com.sun.jdi.ArrayReference;
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Array;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayUtilsTest {
@@ -45,4 +49,37 @@ public class ArrayUtilsTest {
     public void testOddOrPositiveBothPositivesAndNegatives() {
         assertEquals(3, ArrayUtils.oddOrPos(new int[]{-3, -2, 0, 1, 4}));
     }
+
+    // countOf for loop never entered
+    @Test
+    public void testCountOfEmptyArray() {
+        assertEquals(0, ArrayUtils.countOf(new int[]{}, 1));
+    }
+
+    // countOf for loop entered once
+    @Test
+    public void testCountOfFoundOnce() {
+        assertEquals(1, ArrayUtils.countOf(new int[]{2, 3, 5}, 3));
+    }
+
+    // countOf if (true) branch; target is found
+    @Test
+    public void testCountOfTargetFound() {
+        assertEquals(3, ArrayUtils.countOf(new int[]{1, 1, 1}, 1));
+    }
+
+    //countOf else (if is false) branch; target is not found
+    @Test
+    public void testCountOfTargetNotFound() {
+        assertEquals(0, ArrayUtils.countOf(new int[]{2, 3, 4}, 5));
+    }
+
+    //countOf mix of if/else (true/false) paths
+    @Test
+    public void testCountOfMixedBranchPaths() {
+        assertEquals(2, ArrayUtils.countOf(new int[]{12, 3, 7, 3}, 3));
+    }
+
+
+
 }
