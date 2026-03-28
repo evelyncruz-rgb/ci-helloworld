@@ -41,6 +41,6 @@ public class ArrayUtils {
         for (int a: x) {
             count = a == target ? count + 1 : count;
         }
-        return count;
+        return count; // comment
     }
 }
